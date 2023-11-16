@@ -1,4 +1,4 @@
-# block_websocket
+# Block Websocket
 A mod based on the Fabric API that enables opening WebSocket ports for Minecraft servers.
 
 Supported Minecraft version 1.20.2
