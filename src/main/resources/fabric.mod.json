@@ -2,16 +2,16 @@
 	"schemaVersion": 1,
 	"id": "block_websocket",
 	"version": "${version}",
-	"name": "Block_Websocket",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Block Websocket",
+	"description": "A mod based on the Fabric API that enables opening WebSocket ports for Minecraft servers.",
 	"authors": [
-		"Me!"
+		"ichiyo"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/1Yie/block-websocket",
+		"sources": "https://github.com/1Yie/block-websocket?search=1"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/block_websocket/icon.png",
 	"environment": "*",
 	"entrypoints": {
