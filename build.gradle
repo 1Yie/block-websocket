@@ -47,6 +47,10 @@ dependencies {
 
     // modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
     implementation 'org.eclipse.jetty.websocket:websocket-server:9.4.53.v20231009'
+
+    implementation 'org.yaml:snakeyaml:1.28'
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.5'
 }
 
 processResources {

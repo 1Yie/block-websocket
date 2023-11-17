@@ -1,5 +1,7 @@
 package moe.ingstar.block_websocket.server;
 
+import moe.ingstar.block_websocket.config.ConfigManager;
+import moe.ingstar.block_websocket.config.ModConfig;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
@@ -15,7 +17,11 @@ public class WebSocketResponseHandler {
     private Server server;
 
     public void startWebSocketServer() throws Exception {
-        server = new Server(8990);
+
+        ModConfig modConfig = ConfigManager.loadConfig();
+
+        server = new Server(modConfig.serverPort);
+
         WebSocketHandler handler = new WebSocketHandler() {
             @Override
             public void configure(WebSocketServletFactory factory) {
