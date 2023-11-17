@@ -1,5 +1,6 @@
 package moe.ingstar.block_websocket.config;
 
+import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.IOException;
@@ -48,7 +49,6 @@ public class ConfigManager {
 
     public static void updateWebSocketPort(int newPort) {
         ModConfig config = loadConfig();
-
         config.serverPort = newPort;
 
         saveConfig(config);
@@ -59,8 +59,15 @@ public class ConfigManager {
             ModConfig defaultConfig = new ModConfig();
             defaultConfig.serverPort = 8990;
 
-            saveConfig(defaultConfig);
-        } catch (Exception e) {
+            DumperOptions options = new DumperOptions();
+            options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
+            Yaml yaml = new Yaml(options);
+
+            Map<String, Object> configMap = configToMap(defaultConfig);
+            String yamlString = yaml.dump(configMap);
+
+            Files.writeString(Path.of(CONFIG_FILE_PATH), yamlString);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -68,7 +75,6 @@ public class ConfigManager {
     private static Map<String, Object> configToMap(ModConfig config) {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("serverPort", config.serverPort);
-        // 添加其他属性到 map 中
         return map;
     }
 }

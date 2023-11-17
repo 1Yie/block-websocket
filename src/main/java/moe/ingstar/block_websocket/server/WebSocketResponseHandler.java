@@ -57,6 +57,7 @@ public class WebSocketResponseHandler {
                 try {
                     session.getRemote().sendString(response);
                     System.out.println("发送ping响应: " + response);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -65,7 +66,6 @@ public class WebSocketResponseHandler {
 
         @OnWebSocketClose
         public void onClose(Session session, int statusCode, String reason) {
-            // WebSocket连接已关闭
             System.out.println("WebSocket连接已关闭: " + statusCode + " - " + reason);
         }
     }
