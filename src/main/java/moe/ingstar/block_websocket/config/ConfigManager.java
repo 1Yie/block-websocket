@@ -1,12 +1,7 @@
 package moe.ingstar.block_websocket.config;
 
-
-import com.mojang.authlib.minecraft.client.ObjectMapper;
-import net.minecraft.server.SaveLoading;
 import org.yaml.snakeyaml.Yaml;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -15,12 +10,13 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ConfigManager {
-    private static final String CONFIG_FILE_PATH = "config\\websocket_config\\config.yml";
+    private static final String CONFIG_FILE_PATH = "config/websocket_config/config.yml";
     private ModConfig config;
 
     public static ModConfig loadConfig() {
         try {
             Path configFilePath = FileSystems.getDefault().getPath(CONFIG_FILE_PATH);
+
             if (!Files.exists(configFilePath)) {
                 createDefaultConfig();
             }
